@@ -31,7 +31,7 @@
 - [x] Remove "pelletized material" from product list
 - [x] Remove Brent's direct email from public-facing site (replaced with `info@elkonproducts.com` placeholder — confirm spelling: notes say "elcon" but company is "Elkon")
 - [ ] Remove Brent's cell number from public-facing site (current `604-315-3599` is the main company number per prior commit — confirm whether this also needs to go)
-- [ ] Expand the request information form (currently too condensed); add phone number field
+- [x] Expand the request information form (currently too condensed); add phone number field (also added Project Location and Preferred Contact Method)
 - [x] Change "same-day delivery" → "Priority delivery available" (contact card, meta description, Edmonton project tag)
 - [ ] Build out the calculator (bulk loads, pallets, sacks, minimum load size)
 - [ ] Add geo-locking to form submissions (Canada only for alerts) — backend work
@@ -39,7 +39,7 @@
 - [ ] Set up `info@elconproducts.com` shared mailbox + SharePoint routing — infrastructure (link added to site, but mailbox not yet live)
 - [ ] Configure SEO, Google Business listing, analytics
 - [ ] Make the site editable (backend login) so the team can update text themselves
-- [~] Cap front-page projects at 5–6 with a "more projects" landing area (currently 5 cards, within cap; separate landing page not yet built)
+- [x] Cap front-page projects at 5–6 with a "more projects" landing area (5 cards on front page + "View All Projects" CTA linking to a placeholder section; full sub-page deferred until team confirms featured projects)
 
 **Also completed (from Key Discussion Points):**
 - [x] Auto-increment year counter (Years in Business now computes from `data-founded="1996"` — confirm founding year)

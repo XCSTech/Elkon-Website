@@ -582,6 +582,40 @@
       grid-template-columns: 1fr 1fr;
     }
 
+    .projects-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .all-projects-section {
+      padding-top: 0;
+    }
+
+    .all-projects-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .all-projects-card h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .all-projects-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .all-projects-card .btn {
+      margin: 0 auto;
+    }
+
     .project-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -1871,6 +1905,27 @@
         <p class="section-sub reveal-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
         <div class="section-cards project-grid"></div>
+
+        <div class="projects-cta reveal">
+          <a href="#all-projects" class="btn btn-orange">
+            View All Projects
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALL PROJECTS (placeholder — to be built out with full gallery) ===== -->
+  <section class="section section-light all-projects-section" id="all-projects">
+    <div class="container">
+      <div class="all-projects-card reveal">
+        <h2>More projects on the way</h2>
+        <p>We're curating the full project gallery — check back soon, or reach out and we'll share recent work directly.</p>
+        <a href="#contact" class="btn btn-orange">
+          Contact Us
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -2062,9 +2117,15 @@
               <input type="text" id="quote-company" placeholder="Company name">
             </div>
           </div>
-          <div class="form-group">
-            <label for="quote-email">Email</label>
-            <input type="email" id="quote-email" placeholder="you@company.com">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="quote-email">Email</label>
+              <input type="email" id="quote-email" placeholder="you@company.com">
+            </div>
+            <div class="form-group">
+              <label for="quote-phone">Phone</label>
+              <input type="tel" id="quote-phone" placeholder="(403) 555-0123">
+            </div>
           </div>
           <div class="form-row">
             <div class="form-group">
@@ -2080,9 +2141,23 @@
               <input type="text" id="quote-quantity" placeholder="e.g. 20 tonnes">
             </div>
           </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="quote-location">Project Location</label>
+              <input type="text" id="quote-location" placeholder="City, Province">
+            </div>
+            <div class="form-group">
+              <label for="quote-contact-method">Preferred Contact</label>
+              <select id="quote-contact-method">
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+                <option value="text">Text/SMS</option>
+              </select>
+            </div>
+          </div>
           <div class="form-group">
             <label for="quote-message">Project Details</label>
-            <textarea id="quote-message" placeholder="Tell us about your project — application, location, timeline..."></textarea>
+            <textarea id="quote-message" placeholder="Tell us about your project — application, timeline, special requirements..."></textarea>
           </div>
           <button type="submit" class="submit-btn">Request More Information</button>
         </form>
