@@ -55,3 +55,10 @@
 - Confirm which info fields they want on the contact form
 
 **Timeline:** No hard launch deadline — team prefers to get it right. Target mid-June at earliest. Next checkpoint: **Tuesday, 2026-06-02**.
+
+## Open questions / confirmations needed
+
+- **Email spelling:** Notes say `info@elconproducts.com`, but the company is "Elkon" — site currently uses `info@elkonproducts.com`. Confirm which is correct before mailbox is provisioned.
+- **Founding year:** Years counter currently set to compute from 1996 (lands on 30 today). Confirm.
+- **Public phone number:** `604-315-3599` is now the published number — confirm this is the main company line, not Brent's cell that needs to come down.
+- **Featured projects list:** Need the team's final list (and approved photos) before the "more projects" sub-page can be built.
