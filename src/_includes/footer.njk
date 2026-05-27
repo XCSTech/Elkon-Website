@@ -1,0 +1,15 @@
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="{{ nav_prefix | default('') }}#hero" class="footer-logo">
+          <span class="brand-mark"></span>
+          <span class="brand">{{ footer.brand }}</span>
+          <span class="brand-sub">{{ footer.brand_sub }}</span>
+        </a>
+        <span class="footer-text">{{ site.copyright | safe }}</span>
+        <div class="footer-badges">
+          {% for badge in footer.badges %}<span class="footer-badge">{{ badge }}</span>
+          {% endfor %}</div>
+      </div>
+    </div>
+  </footer>
