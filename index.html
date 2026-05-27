@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elkon Products — Canada's Largest Densified Silica Fume Supplier</title>
-  <meta name="description" content="Elkon Products is Canada's largest densified silica fume supplier, serving construction and oilfield markets across Western Canada with same-day delivery.">
+  <meta name="description" content="Elkon Products is Canada's largest densified silica fume supplier, serving construction and oilfield markets across Western Canada with priority delivery available.">
   <meta property="og:title" content="Elkon Products — Canada's Largest Densified Silica Fume Supplier">
   <meta property="og:description" content="Serving oilfield and construction markets across Western Canada.">
   <meta property="og:type" content="website">
@@ -1776,7 +1776,7 @@
             <div class="product-card-body">
               <h3>Densified Silica Fume</h3>
               <span class="product-type">Construction</span>
-              <p>Concentrated pellet form for easy handling and batching at ready-mix plants. Extends concrete service life to 100+ years for bridges, highways, marine structures, and high-performance applications.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               <div class="product-tags">
                 <span class="product-tag">Bulk Pneumatic</span>
                 <span class="product-tag">Super Sacks</span>
@@ -1897,7 +1897,7 @@
       <h2 class="section-title reveal-left" style="margin-bottom:3rem;">Why choose Elkon.</h2>
       <div class="stats-grid">
         <div class="stat-card reveal">
-          <div class="stat-number"><span class="counter" data-target="30">0</span><span class="suffix">+</span></div>
+          <div class="stat-number"><span class="counter" data-founded="1996">0</span><span class="suffix">+</span></div>
           <div class="stat-label">Years in Business</div>
           <div class="stat-divider"></div>
           <p class="stat-blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2034,7 +2034,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
             </div>
             <div>
-              <a href="mailto:bsnell.elkon@gmail.com">bsnell.elkon@gmail.com</a>
+              <a href="mailto:info@elkonproducts.com">info@elkonproducts.com</a>
               <small>Email us anytime</small>
             </div>
           </div>
@@ -2044,7 +2044,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
             </div>
             <div>
-              <a href="#stats">Same-Day Delivery</a>
+              <a href="#stats">Priority Delivery Available</a>
               <small>Available in AB &amp; BC</small>
             </div>
           </div>
@@ -2169,7 +2169,9 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const el = entry.target;
-          const target = parseInt(el.dataset.target);
+          const target = el.dataset.founded
+            ? new Date().getFullYear() - parseInt(el.dataset.founded)
+            : parseInt(el.dataset.target);
           const duration = 1800;
           const start = performance.now();
           function tick(now) {
@@ -2279,7 +2281,7 @@
         title: 'Tempor Incididunt',
         loc: 'Fort McMurray, AB',
         badge: 'Logistics',
-        tags: ['Local Stock', 'Same-Day Pickup', 'Bulk + Super Sacks'],
+        tags: ['Local Stock', 'Priority Pickup', 'Bulk + Super Sacks'],
         img: 'img/project-eaton-centre.jpg',
         teaser: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         long: [
