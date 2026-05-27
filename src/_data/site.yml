@@ -10,4 +10,8 @@ contact:
   phone_link: ""
   email: "info@elkonproducts.com"
 
+analytics:
+  ga4_measurement_id: ""
+  clarity_project_id: "wxvhil3n9s"
+
 copyright: "© 2026 Elkon Products Inc. All rights reserved."

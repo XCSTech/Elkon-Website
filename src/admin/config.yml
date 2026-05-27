@@ -50,6 +50,12 @@ collections:
               - { label: "Phone (displayed)", name: "phone_display", widget: "string" }
               - { label: "Phone (tel: link)", name: "phone_link", widget: "string", hint: "Format: +16043153599" }
               - { label: "Email", name: "email", widget: "string" }
+          - label: "Analytics"
+            name: "analytics"
+            widget: "object"
+            fields:
+              - { label: "Google Analytics 4 Measurement ID", name: "ga4_measurement_id", widget: "string", required: false, hint: "Format: G-XXXXXXXXXX. Leave blank to disable." }
+              - { label: "Microsoft Clarity Project ID", name: "clarity_project_id", widget: "string", required: false, hint: "10-character ID from clarity.microsoft.com. Leave blank to disable." }
           - { label: "Copyright Text", name: "copyright", widget: "string" }
 
       - file: "src/_data/nav.yml"
