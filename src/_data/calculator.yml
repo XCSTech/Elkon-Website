@@ -1,0 +1,17 @@
+eyebrow: "Dosage Calculator"
+heading: |
+  How much silica fume
+  do you need?
+sub: "Enter your project details and get an instant estimate for dosage, total quantity, and packaging."
+
+form_heading: "Project Details"
+result_heading: "Estimate"
+
+cta_label: "Calculate Dosage"
+quote_cta_label: "Request More Information"
+
+result_labels:
+  dosage: "Dosage Rate"
+  total: "Total Silica Fume"
+  sacks: "Super Sacks (~1,000 kg)"
+  tonnes: "Tonnes"

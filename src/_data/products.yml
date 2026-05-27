@@ -1,0 +1,28 @@
+eyebrow: "What We Supply"
+heading: |
+  Two products.
+  Two industries.
+sub: "We supply densified and undensified silica fume — a pozzolanic admixture that dramatically increases the strength, durability, and chemical resistance of concrete and well cement."
+
+items:
+  - badge: "Construction"
+    image: "https://images.unsplash.com/photo-1536566482680-fca31930a0bd?w=800&q=80"
+    image_alt: "Concrete texture showing the strength that silica fume adds"
+    name: "Densified Silica Fume"
+    type: "Construction"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    tags:
+      - "Bulk Pneumatic"
+      - "Super Sacks"
+      - "Palletized Bags"
+
+  - badge: "Oilfield"
+    image: "https://images.unsplash.com/photo-1563883830555-79971475cc22?w=800&q=80"
+    image_alt: "Oil drilling rig representing oilfield applications"
+    name: "Undensified Silica Fume"
+    type: "Oilfield"
+    description: "Raw powder form for well cementing and drilling fluid applications. Improves well cement integrity, compressive strength, and resistance to downhole chemical attack in oil and gas operations."
+    tags:
+      - "Well Cementing"
+      - "Drilling Fluids"
+      - "API/ISO Compliant"

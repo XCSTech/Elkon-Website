@@ -1,0 +1,36 @@
+eyebrow: "By The Numbers"
+heading: "Why choose Elkon."
+
+cards:
+  years:
+    founded_year: 1996
+    suffix: "+"
+    label: "Years in Business"
+    blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+
+  rank:
+    target: 1
+    prefix: "#"
+    label: "Densified Supplier in Canada"
+
+  regions:
+    target: 3
+    label: "Distribution Regions"
+    locations:
+      - "Alberta &mdash; Edmonton"
+      - "British Columbia"
+      - "Washington State"
+
+  certifications:
+    headline: |
+      Tested.
+      Certified.
+      Compliant.
+    items:
+      - "ASTM C1240"
+      - "CSA A3001"
+      - "ACI 234R"
+      - "AASHTO M 307"
+      - "API Spec 10A"
+      - "ISO 10426"
+      - "SiO₂ > 85%"

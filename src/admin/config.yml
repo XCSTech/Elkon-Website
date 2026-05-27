@@ -1,0 +1,277 @@
+# Decap CMS configuration for the Elkon Products site.
+#
+# Backend is set to test-repo for local trials — edits stay in-memory and
+# are not persisted. When the team picks a host, swap to one of the
+# production options below.
+backend:
+  name: test-repo
+
+# --- Production backend options (uncomment one when hosting is chosen) ---
+#
+# Netlify host with built-in identity:
+# backend:
+#   name: git-gateway
+#   branch: main
+#
+# Generic GitHub backend (needs an OAuth provider — Netlify, Cloudflare
+# Workers proxy, or a self-hosted oauth proxy):
+# backend:
+#   name: github
+#   repo: XCSTech/Elkon-Website
+#   branch: main
+
+media_folder: "src/img"
+public_folder: "/img"
+
+site_url: https://example.com
+display_url: https://example.com
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "src/_data/site.yml"
+        label: "Site (title, meta, contact)"
+        name: "site"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+          - label: "Open Graph"
+            name: "og"
+            widget: "object"
+            fields:
+              - { label: "OG Title", name: "title", widget: "string" }
+              - { label: "OG Description", name: "description", widget: "text" }
+              - { label: "OG Type", name: "type", widget: "string" }
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Phone (displayed)", name: "phone_display", widget: "string" }
+              - { label: "Phone (tel: link)", name: "phone_link", widget: "string", hint: "Format: +16043153599" }
+              - { label: "Email", name: "email", widget: "string" }
+          - { label: "Copyright Text", name: "copyright", widget: "string" }
+
+      - file: "src/_data/nav.yml"
+        label: "Navigation"
+        name: "nav"
+        fields:
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "CTA Label", name: "cta_label", widget: "string" }
+          - { label: "CTA Href", name: "cta_href", widget: "string" }
+
+      - file: "src/_data/footer.yml"
+        label: "Footer"
+        name: "footer"
+        fields:
+          - { label: "Brand", name: "brand", widget: "string" }
+          - { label: "Brand Sub", name: "brand_sub", widget: "string" }
+          - { label: "Badges", name: "badges", widget: "list" }
+
+  - name: "sections"
+    label: "Page Sections"
+    files:
+      - file: "src/_data/hero.yml"
+        label: "Hero"
+        name: "hero"
+        fields:
+          - { label: "Heading (one line per row break)", name: "heading", widget: "text" }
+          - label: "Primary CTA"
+            name: "primary_cta"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - label: "Secondary CTA"
+            name: "secondary_cta"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "Scroll Indicator Label", name: "scroll_label", widget: "string" }
+
+      - file: "src/_data/products.yml"
+        label: "Products"
+        name: "products"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "text" }
+          - { label: "Sub", name: "sub", widget: "text" }
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Badge", name: "badge", widget: "string" }
+              - { label: "Image URL", name: "image", widget: "string" }
+              - { label: "Image Alt", name: "image_alt", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Type", name: "type", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Tags", name: "tags", widget: "list" }
+
+      - file: "src/_data/markets.yml"
+        label: "Markets"
+        name: "markets"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "text" }
+          - { label: "Sub", name: "sub", widget: "text" }
+          - label: "Panels"
+            name: "panels"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Image URL", name: "image", widget: "string" }
+              - { label: "Image Alt", name: "image_alt", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Apps", name: "apps", widget: "list" }
+
+      - file: "src/_data/calculator.yml"
+        label: "Calculator"
+        name: "calculator"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "text" }
+          - { label: "Sub", name: "sub", widget: "text" }
+          - { label: "Form Heading", name: "form_heading", widget: "string" }
+          - { label: "Result Heading", name: "result_heading", widget: "string" }
+          - { label: "Calculate Button Label", name: "cta_label", widget: "string" }
+          - { label: "Quote CTA Label", name: "quote_cta_label", widget: "string" }
+          - label: "Result Labels"
+            name: "result_labels"
+            widget: "object"
+            fields:
+              - { label: "Dosage", name: "dosage", widget: "string" }
+              - { label: "Total", name: "total", widget: "string" }
+              - { label: "Sacks", name: "sacks", widget: "string" }
+              - { label: "Tonnes", name: "tonnes", widget: "string" }
+
+      - file: "src/_data/stats.yml"
+        label: "Stats / By The Numbers"
+        name: "stats"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "string" }
+          - label: "Years Card"
+            name: "cards"
+            widget: "object"
+            fields:
+              - label: "Years in Business"
+                name: "years"
+                widget: "object"
+                fields:
+                  - { label: "Founded Year", name: "founded_year", widget: "number" }
+                  - { label: "Suffix", name: "suffix", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Blurb", name: "blurb", widget: "text" }
+              - label: "Rank"
+                name: "rank"
+                widget: "object"
+                fields:
+                  - { label: "Number", name: "target", widget: "number" }
+                  - { label: "Prefix", name: "prefix", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+              - label: "Regions"
+                name: "regions"
+                widget: "object"
+                fields:
+                  - { label: "Number", name: "target", widget: "number" }
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Locations", name: "locations", widget: "list" }
+              - label: "Certifications"
+                name: "certifications"
+                widget: "object"
+                fields:
+                  - { label: "Headline", name: "headline", widget: "text" }
+                  - { label: "Items", name: "items", widget: "list" }
+
+      - file: "src/_data/contact.yml"
+        label: "Contact"
+        name: "contact"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "text" }
+          - { label: "Info Heading", name: "info_heading", widget: "string" }
+          - { label: "Info Blurb", name: "info_blurb", widget: "text" }
+          - { label: "Phone Subline", name: "phone_subline", widget: "string" }
+          - { label: "Email Subline", name: "email_subline", widget: "string" }
+          - { label: "Delivery Label", name: "delivery_label", widget: "string" }
+          - { label: "Delivery Subline", name: "delivery_subline", widget: "string" }
+          - label: "Form"
+            name: "form"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Submit Label", name: "submit_label", widget: "string" }
+              - label: "Field Labels"
+                name: "fields"
+                widget: "object"
+                fields:
+                  - { label: "Name Label", name: "name", widget: "string" }
+                  - { label: "Name Placeholder", name: "name_placeholder", widget: "string" }
+                  - { label: "Company Label", name: "company", widget: "string" }
+                  - { label: "Company Placeholder", name: "company_placeholder", widget: "string" }
+                  - { label: "Email Label", name: "email", widget: "string" }
+                  - { label: "Email Placeholder", name: "email_placeholder", widget: "string" }
+                  - { label: "Phone Label", name: "phone", widget: "string" }
+                  - { label: "Phone Placeholder", name: "phone_placeholder", widget: "string" }
+                  - { label: "Product Label", name: "product", widget: "string" }
+                  - { label: "Quantity Label", name: "quantity", widget: "string" }
+                  - { label: "Quantity Placeholder", name: "quantity_placeholder", widget: "string" }
+                  - { label: "Location Label", name: "location", widget: "string" }
+                  - { label: "Location Placeholder", name: "location_placeholder", widget: "string" }
+                  - { label: "Contact Method Label", name: "contact_method", widget: "string" }
+                  - { label: "Message Label", name: "message", widget: "string" }
+                  - { label: "Message Placeholder", name: "message_placeholder", widget: "text" }
+              - label: "Product Options"
+                name: "product_options"
+                widget: "list"
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+              - label: "Contact Method Options"
+                name: "contact_method_options"
+                widget: "list"
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "src/_data"
+    create: false
+    delete: false
+    extension: "yml"
+    format: "yml"
+    files:
+      - file: "src/_data/projects.yml"
+        label: "Project Listing"
+        name: "projects"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "text" }
+          - { label: "Sub", name: "sub", widget: "text" }
+          - { label: "View All CTA", name: "view_all_cta", widget: "string" }
+          - { label: "Placeholder Heading", name: "placeholder_heading", widget: "string" }
+          - { label: "Placeholder Body", name: "placeholder_body", widget: "text" }
+          - { label: "Placeholder CTA", name: "placeholder_cta", widget: "string" }
+          - label: "Project Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "ID (URL-safe)", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Location", name: "loc", widget: "string" }
+              - { label: "Badge", name: "badge", widget: "string" }
+              - { label: "Tags", name: "tags", widget: "list" }
+              - { label: "Image Path", name: "img", widget: "string" }
+              - { label: "Teaser", name: "teaser", widget: "text" }
+              - { label: "Long Description Paragraphs", name: "long", widget: "list" }
+              - { label: "Stats", name: "stats", widget: "list", hint: "Each stat is [value, label]" }
+              - { label: "Gallery", name: "gallery", widget: "list" }

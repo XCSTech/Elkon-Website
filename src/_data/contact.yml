@@ -1,0 +1,48 @@
+eyebrow: "Get In Touch"
+heading: |
+  Ready to order?
+  Let's talk.
+
+info_heading: "We respond fast."
+info_blurb: "Whether you need a truckload or a quote for a major project, we'll get back to you within hours — not days."
+
+phone_subline: "Call or text"
+email_subline: "Email us anytime"
+
+delivery_label: "Priority Delivery Available"
+delivery_subline: "Available in AB & BC"
+
+form:
+  heading: "Request More Information"
+  submit_label: "Request More Information"
+  fields:
+    name: "Name"
+    name_placeholder: "Your name"
+    company: "Company"
+    company_placeholder: "Company name"
+    email: "Email"
+    email_placeholder: "you@company.com"
+    phone: "Phone"
+    phone_placeholder: "(403) 555-0123"
+    product: "Product Needed"
+    quantity: "Approx. Quantity"
+    quantity_placeholder: "e.g. 20 tonnes"
+    location: "Project Location"
+    location_placeholder: "City, Province"
+    contact_method: "Preferred Contact"
+    message: "Project Details"
+    message_placeholder: "Tell us about your project — application, timeline, special requirements..."
+  product_options:
+    - value: "densified"
+      label: "Densified"
+    - value: "undensified"
+      label: "Undensified"
+    - value: "both"
+      label: "Both / Not Sure"
+  contact_method_options:
+    - value: "email"
+      label: "Email"
+    - value: "phone"
+      label: "Phone"
+    - value: "text"
+      label: "Text/SMS"

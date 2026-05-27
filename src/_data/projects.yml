@@ -1,0 +1,92 @@
+eyebrow: "Selected Projects"
+heading: |
+  Where our silica
+  fume goes to work.
+sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+
+view_all_cta: "View All Projects"
+
+placeholder_heading: "More projects on the way"
+placeholder_body: "We're curating the full project gallery — check back soon, or reach out and we'll share recent work directly."
+placeholder_cta: "Contact Us"
+
+items:
+  - id: "patullo"
+    title: "Lorem Ipsum Dolor"
+    loc: "Calgary, AB"
+    badge: "Bridges & Highways"
+    tags: ["Chloride Resistance", "Freeze-Thaw", "70+ MPa"]
+    img: "img/project-patullo-bridge.jpg"
+    teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    long:
+      - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    stats:
+      - ["80+ MPa", "Compressive Strength"]
+      - ["100+ yr", "Service Life Target"]
+      - ["8-10%", "Silica Fume Dosage"]
+    gallery: ["img/project-patullo-bridge.jpg"]
+
+  - id: "eaton"
+    title: "Sit Amet Consectetur"
+    loc: "Edmonton, AB"
+    badge: "High-Rise"
+    tags: ["HPC", "Bulk Pneumatic", "Densely Reinforced"]
+    img: "img/project-eaton-centre.jpg"
+    teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    long:
+      - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    stats:
+      - ["65 MPa", "Strength"]
+      - ["7-9%", "Dosage"]
+      - ["Bulk", "Pneumatic Delivery"]
+    gallery: ["img/project-eaton-centre.jpg"]
+
+  - id: "wind"
+    title: "Adipiscing Elit"
+    loc: "Red Deer, AB"
+    badge: "Energy & Utilities"
+    tags: ["Sulfate Resistance", "Cyclic Loading", "25-40 yr Life"]
+    img: "img/project-wind-turbines.jpg"
+    teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    long:
+      - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    stats:
+      - ["25-40 yr", "Service Life"]
+      - ["8%", "Avg Dosage"]
+      - ["100m³+", "Per Foundation"]
+    gallery: ["img/project-wind-turbines.jpg"]
+
+  - id: "parkade"
+    title: "Sed Do Eiusmod"
+    loc: "Lethbridge, AB"
+    badge: "Parking Structures"
+    tags: ["Low Permeability", "Precast", "Deicing-Salt Resistant"]
+    img: "img/project-parkade.jpg"
+    teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    long:
+      - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    stats:
+      - ["<1000", "Coulombs (RCPT)"]
+      - ["8-10%", "Dosage"]
+      - ["Precast", "Quality Control"]
+    gallery: ["img/project-parkade.jpg"]
+
+  - id: "distribution"
+    title: "Tempor Incididunt"
+    loc: "Fort McMurray, AB"
+    badge: "Logistics"
+    tags: ["Local Stock", "Priority Pickup", "Bulk + Super Sacks"]
+    img: "img/project-eaton-centre.jpg"
+    teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    long:
+      - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    stats:
+      - ["4", "Distribution Regions"]
+      - ["24hr", "Turnaround"]
+      - ["Local", "Stock"]
+    gallery: ["img/project-eaton-centre.jpg"]

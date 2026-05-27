@@ -1,0 +1,12 @@
+links:
+  - label: "Products"
+    href: "#products"
+  - label: "Markets"
+    href: "#markets"
+  - label: "Projects"
+    href: "#projects"
+  - label: "Calculator"
+    href: "#calculator"
+
+cta_label: "Request More Information"
+cta_href: "#contact"
