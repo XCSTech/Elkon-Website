@@ -103,10 +103,6 @@
 
         <div class="section-cards project-grid"></div>
         <noscript><ul>{% for proj in projects.items %}<li>{{ proj.title }}, {{ proj.loc }}</li>{% endfor %}</ul></noscript>
-
-        <p class="projects-more">
-          <a href="projects/" class="btn btn-ink">{{ projects.view_all_cta }} {{ icon.arrow() | safe }}</a>
-        </p>
       </div>
     </div>
   </section>
@@ -213,7 +209,8 @@
 
             <ul class="contact-rows">
               <li><span class="mono">Email</span><span class="row-val">{{ icon.mail() | safe }}<a class="link-draw" href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></span></li>
-              <li><span class="mono">Delivery</span><span class="row-val">{{ icon.truck() | safe }}{{ contact.delivery_label }} {{ contact.delivery_subline | safe }}</span></li>
+              <li><span class="mono">Delivery</span><span class="row-val">{{ icon.truck() | safe }}{{ contact.delivery_label }}</span></li>
+              {% if contact.office %}<li><span class="mono">Office</span><span class="row-val">{{ icon.pin() | safe }}{{ contact.office }}</span></li>{% endif %}
             </ul>
           </div>
 
@@ -232,12 +229,12 @@
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="quote-email">{{ f.email }}</label>
-                <input type="email" id="quote-email" name="email" autocomplete="email" placeholder="{{ f.email_placeholder }}" required>
+                <label for="quote-phone">{{ f.phone }}</label>
+                <input type="tel" id="quote-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="{{ f.phone_placeholder }}" required>
               </div>
               <div class="form-group">
-                <label for="quote-phone">{{ f.phone }}</label>
-                <input type="tel" id="quote-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="{{ f.phone_placeholder }}">
+                <label for="quote-email">{{ f.email }}</label>
+                <input type="email" id="quote-email" name="email" autocomplete="email" placeholder="{{ f.email_placeholder }}" required>
               </div>
             </div>
 
@@ -250,19 +247,20 @@
 
             <div class="form-row">
               <div class="form-group">
+                <label for="quote-packaging">{{ f.packaging }}</label>
+                <select id="quote-packaging" name="packaging">
+                  <option value="">Choose one</option>
+                  {% for opt in contact.form.packaging_options %}<option value="{{ opt.value }}">{{ opt.label }}</option>
+                  {% endfor %}</select>
+              </div>
+              <div class="form-group">
                 <label for="quote-quantity">{{ f.quantity }}</label>
                 <input type="text" id="quote-quantity" name="quantity" placeholder="{{ f.quantity_placeholder }}">
               </div>
-              <div class="form-group">
-                <label for="quote-location">{{ f.location }}</label>
-                <input type="text" id="quote-location" name="location" autocomplete="address-level2" placeholder="{{ f.location_placeholder }}" required>
-              </div>
             </div>
             <div class="form-group">
-              <label for="quote-contact-method">{{ f.contact_method }}</label>
-              <select id="quote-contact-method" name="contact_method">
-                {% for opt in contact.form.contact_method_options %}<option value="{{ opt.value }}">{{ opt.label }}</option>
-                {% endfor %}</select>
+              <label for="quote-location">{{ f.location }}</label>
+              <input type="text" id="quote-location" name="location" autocomplete="address-level2" placeholder="{{ f.location_placeholder }}" required>
             </div>
             <div class="form-group">
               <label for="quote-message">{{ f.message }} <span class="opt">(optional)</span></label>

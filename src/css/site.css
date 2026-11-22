@@ -381,6 +381,10 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 8px); }
   margin-bottom: 1rem;
 }
 .hero-kicker span + span::before { content: '·'; margin-right: 0.6rem; color: var(--orange); }
+@media (max-width: 768px) {
+  .hero-kicker { flex-direction: column; gap: 0.15rem; }
+  .hero-kicker span + span::before { content: none; }
+}
 
 .hero h1 {
   font-size: clamp(2.75rem, 8.5vw, 6.5rem);

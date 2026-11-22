@@ -20,7 +20,7 @@ items:
         value: "ASTM C1240 · CSA A3001"
     # Ticks this product in the contact form when the card is clicked
     form_value: "densified"
-    cta_label: "Ask about densified"
+    cta_label: "Price densified"
 
   - badge: "Oilfield"
     image: "https://images.unsplash.com/photo-1563883830555-79971475cc22?w=900&q=75"
@@ -36,4 +36,4 @@ items:
       - label: "Standards"
         value: "API Spec 10A · ISO 10426"
     form_value: "undensified"
-    cta_label: "Ask about undensified"
+    cta_label: "Price undensified"

@@ -16,7 +16,7 @@ sub: "Stock on the ground in BC, Alberta and Washington State. Bulk, super sacks
 image: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=2000&q=75"
 
 primary_cta:
-  label: "Request More Information"
+  label: "Get a Quote"
   href: "#contact"
 # Shown only when no public phone number is set (otherwise a call button appears)
 secondary_cta:
@@ -29,6 +29,6 @@ specs:
   - label: "Packaging"
     value: "Bulk · Super sack · Bags"
   - label: "Delivery"
-    value: "Priority delivery AB & BC"
+    value: "Same-day AB & BC"
   - label: "Stock"
     value: "BC · AB · WA"

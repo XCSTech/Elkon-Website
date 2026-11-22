@@ -22,7 +22,7 @@
             <ul>
               {% if site.contact.phone_display %}<li><a href="tel:{{ site.contact.phone_link }}">{{ site.contact.phone_display }}</a></li>{% endif %}
               <li><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></li>
-              <li><a href="{{ p }}{{ nav.cta_href }}">{{ nav.cta_label }}</a></li>
+              {% if contact.office %}<li>{{ contact.office }}</li>{% endif %}
             </ul>
           </div>
           <div class="footer-col">

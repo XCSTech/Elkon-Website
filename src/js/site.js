@@ -200,7 +200,7 @@
         (p.gallery && p.gallery.length > 1 ? '<div class="modal-gallery">' + p.gallery.map(function (g) {
           return '<img src="' + esc(g) + '" alt="' + esc(p.title) + ', additional view" loading="lazy">';
         }).join('') + '</div>' : '') +
-        '<p style="margin-top:2rem"><a class="btn btn-orange" href="#contact" data-close-then>Working on something like this? Request more information ' + arrow + '</a></p>' +
+        '<p style="margin-top:2rem"><a class="btn btn-orange" href="#contact" data-close-then>Working on something like this? Get a quote ' + arrow + '</a></p>' +
       '</div>';
 
     // Lock background scroll (iOS-safe)

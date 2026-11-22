@@ -236,9 +236,8 @@ collections:
           - { label: "Info Heading", name: "info_heading", widget: "string" }
           - { label: "Info Blurb", name: "info_blurb", widget: "text" }
           - { label: "Phone Subline", name: "phone_subline", widget: "string" }
-          - { label: "Email Subline", name: "email_subline", widget: "string" }
-          - { label: "Delivery Label", name: "delivery_label", widget: "string" }
-          - { label: "Delivery Subline", name: "delivery_subline", widget: "string" }
+          - { label: "Delivery Line", name: "delivery_label", widget: "string" }
+          - { label: "Office Location", name: "office", widget: "string", required: false }
           - label: "Form"
             name: "form"
             widget: "object"
@@ -258,11 +257,11 @@ collections:
                   - { label: "Phone Label", name: "phone", widget: "string" }
                   - { label: "Phone Placeholder", name: "phone_placeholder", widget: "string" }
                   - { label: "Product Label", name: "product", widget: "string" }
+                  - { label: "Packaging Label", name: "packaging", widget: "string" }
                   - { label: "Quantity Label", name: "quantity", widget: "string" }
                   - { label: "Quantity Placeholder", name: "quantity_placeholder", widget: "string" }
                   - { label: "Location Label", name: "location", widget: "string" }
                   - { label: "Location Placeholder", name: "location_placeholder", widget: "string" }
-                  - { label: "Contact Method Label", name: "contact_method", widget: "string" }
                   - { label: "Message Label", name: "message", widget: "string" }
                   - { label: "Message Placeholder", name: "message_placeholder", widget: "text" }
               - label: "Product Options"
@@ -271,8 +270,8 @@ collections:
                 fields:
                   - { label: "Value", name: "value", widget: "string" }
                   - { label: "Label", name: "label", widget: "string" }
-              - label: "Contact Method Options"
-                name: "contact_method_options"
+              - label: "Packaging Options"
+                name: "packaging_options"
                 widget: "list"
                 fields:
                   - { label: "Value", name: "value", widget: "string" }
@@ -307,6 +306,7 @@ collections:
               - { label: "Badge", name: "badge", widget: "string" }
               - { label: "Tags", name: "tags", widget: "list" }
               - { label: "Image Path", name: "img", widget: "string" }
+              - { label: "Image Alt Text", name: "alt", widget: "string", required: false }
               - { label: "Teaser", name: "teaser", widget: "text" }
               - { label: "Long Description Paragraphs", name: "long", widget: "list" }
               - { label: "Stats", name: "stats", widget: "list", hint: "Each stat is [value, label]" }

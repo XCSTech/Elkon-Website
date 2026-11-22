@@ -8,7 +8,7 @@ form_heading: "Project details"
 result_heading: "Estimate"
 
 cta_label: "Calculate"
-quote_cta_label: "Request More Information"
+quote_cta_label: "Quote this order"
 note: "Mid-range estimate. Not a mix design."
 
 result_labels:

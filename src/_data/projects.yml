@@ -1,92 +1,127 @@
-eyebrow: "Projects"
+# CLIENT TO CONFIRM: every project, location and number below.
+eyebrow: Projects
 heading: |
   Where our silica
   fume goes to work.
-sub: "Bridges, towers, wind farms and parkades built with Elkon-supplied silica fume. Tap a project for the details."
-
-view_all_cta: "View All Projects"
-
-placeholder_heading: "More projects on the way"
-placeholder_body: "We're curating the full project gallery — check back soon, or reach out and we'll share recent work directly."
-placeholder_cta: "Contact Us"
-
+sub: Bridges, towers, wind farms and parkades built with Elkon-supplied silica fume. Tap a project for the details.
+view_all_cta: View All Projects
+placeholder_heading: More projects on the way
+placeholder_body: We're curating the full project gallery — check back soon, or reach out and we'll share recent work directly.
+placeholder_cta: Contact Us
 items:
-  - id: "patullo"
-    title: "Lorem Ipsum Dolor"
-    loc: "Calgary, AB"
-    badge: "Bridges & Highways"
-    tags: ["Chloride Resistance", "Freeze-Thaw", "70+ MPa"]
-    img: "img/project-patullo-bridge.jpg"
-    teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  - id: pattullo
+    title: Pattullo Bridge
+    loc: New Westminster, BC
+    badge: Bridges & highways
+    tags:
+      - Chloride resistance
+      - Freeze-thaw
+      - 70+ MPa
+    img: img/project-patullo-bridge.jpg
+    alt: Pattullo Bridge arch over the Fraser River
+    teaser: Durability and chloride resistance for a major river crossing exposed to decades of weather and traffic.
     long:
-      - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      - The Pattullo Bridge spans the Fraser River and sees year-round freeze-thaw cycles, deicing salts and constant heavy truck traffic. Those conditions let chlorides reach the reinforcing steel in ordinary concrete.
+      - Silica fume cuts concrete permeability by an order of magnitude, slowing chloride ingress dramatically. Mixes with Elkon densified silica fume routinely reach 70+ MPa with fast early strength, which keeps a major crossing in service during construction.
     stats:
-      - ["80+ MPa", "Compressive Strength"]
-      - ["100+ yr", "Service Life Target"]
-      - ["8-10%", "Silica Fume Dosage"]
-    gallery: ["img/project-patullo-bridge.jpg"]
-
-  - id: "eaton"
-    title: "Sit Amet Consectetur"
-    loc: "Edmonton, AB"
-    badge: "High-Rise"
-    tags: ["HPC", "Bulk Pneumatic", "Densely Reinforced"]
-    img: "img/project-eaton-centre.jpg"
-    teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - - 70+ MPa
+        - Compressive strength
+      - - 100+ yr
+        - Service life target
+      - - 8–10%
+        - Silica fume dosage
+    gallery:
+      - img/project-patullo-bridge.jpg
+      - img/project-aerial-1600.jpg
+  - id: eaton
+    title: Eaton Centre Montréal
+    loc: Montréal, QC
+    badge: High-rise
+    tags:
+      - HPC
+      - Bulk pneumatic
+      - Dense rebar
+    img: img/project-eaton-centre.jpg
+    alt: Eaton Centre building in downtown Montréal
+    teaser: High-performance concrete for foundations and structure in a downtown commercial build.
     long:
-      - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      - Downtown commercial buildings need concrete strong enough for heavy vertical loads and fluid enough to work through densely reinforced sections without segregating.
+      - Silica fume HPC does both. The fine particles fill voids between cement grains, raising strength and improving how fresh concrete flows. Elkon densified pellets batch cleanly through standard ready-mix equipment.
     stats:
-      - ["65 MPa", "Strength"]
-      - ["7-9%", "Dosage"]
-      - ["Bulk", "Pneumatic Delivery"]
-    gallery: ["img/project-eaton-centre.jpg"]
-
-  - id: "wind"
-    title: "Adipiscing Elit"
-    loc: "Red Deer, AB"
-    badge: "Energy & Utilities"
-    tags: ["Sulfate Resistance", "Cyclic Loading", "25-40 yr Life"]
-    img: "img/project-wind-turbines.jpg"
-    teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - - 65 MPa
+        - Strength
+      - - 7–9%
+        - Dosage
+      - - Bulk
+        - Pneumatic delivery
+    gallery:
+      - img/project-eaton-centre.jpg
+  - id: wind
+    title: Wind Turbine Foundations
+    loc: Québec
+    badge: Energy
+    tags:
+      - Sulfate resistance
+      - Cyclic loading
+      - 25–40 yr life
+    img: img/project-wind-turbines-1600.jpg
+    alt: Wind turbines above a concrete foundation pour
+    teaser: Mass concrete foundations that resist soil chemistry and fatigue for a multi-decade service life.
     long:
-      - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      - A utility-scale wind turbine sits on hundreds of cubic metres of structural concrete. The foundation has to handle cyclic loading from the rotor plus chemical attack from groundwater and soil for 25 to 40 years.
+      - Silica fume densifies the concrete matrix, reducing permeability and resisting sulfate attack. A longer service life also means a lower lifetime carbon footprint per MWh.
     stats:
-      - ["25-40 yr", "Service Life"]
-      - ["8%", "Avg Dosage"]
-      - ["100m³+", "Per Foundation"]
-    gallery: ["img/project-wind-turbines.jpg"]
-
-  - id: "parkade"
-    title: "Sed Do Eiusmod"
-    loc: "Lethbridge, AB"
-    badge: "Parking Structures"
-    tags: ["Low Permeability", "Precast", "Deicing-Salt Resistant"]
-    img: "img/project-parkade.jpg"
-    teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - - 25–40 yr
+        - Service life
+      - - 8%
+        - Avg dosage
+      - - 100 m³+
+        - Per foundation
+    gallery:
+      - img/project-wind-turbines-1600.jpg
+  - id: parkade
+    title: Precast Parking Structures
+    loc: Western Canada
+    badge: Parkades
+    tags:
+      - Low permeability
+      - Precast
+      - Deicing salts
+    img: img/project-parkade.jpg
+    alt: Precast concrete parking structure
+    teaser: Precast elements that keep deicing salts away from the rebar in cold-climate parkades.
     long:
-      - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      - Parkade decks fail when chloride from deicing salts gets into the concrete and corrodes the steel. Once spalling starts, repairs get expensive fast.
+      - Precast elements with silica fume have chloride permeability orders of magnitude lower than ordinary concrete. Combined with factory quality control, owners get much longer time to first repair.
     stats:
-      - ["<1000", "Coulombs (RCPT)"]
-      - ["8-10%", "Dosage"]
-      - ["Precast", "Quality Control"]
-    gallery: ["img/project-parkade.jpg"]
-
-  - id: "distribution"
-    title: "Tempor Incididunt"
-    loc: "Fort McMurray, AB"
-    badge: "Logistics"
-    tags: ["Local Stock", "Priority Pickup", "Bulk + Super Sacks"]
-    img: "img/project-eaton-centre.jpg"
-    teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      - - <1000
+        - Coulombs (RCPT)
+      - - 8–10%
+        - Dosage
+      - - Precast
+        - Factory QC
+    gallery:
+      - img/project-parkade.jpg
+  - id: edmonton
+    title: Edmonton Distribution Hub
+    loc: Edmonton, AB
+    badge: Logistics
+    tags:
+      - Local stock
+      - Same-day pickup
+      - Bulk + super sacks
+    img: img/project-aerial-1600.jpg
+    alt: Aerial view of the Edmonton-area transload site
+    teaser: Stock on hand in Alberta, so the job isn't waiting on an overseas shipment.
     long:
-      - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      - Our Edmonton-area hub at Total Transload keeps densified silica fume in super sacks and bulk, ready for same-day pickup or delivery across central Alberta.
+      - With stock in BC and Washington State as well, the material is already local when the job calls for it.
     stats:
-      - ["3", "Distribution Regions"]
-      - ["24hr", "Turnaround"]
-      - ["Local", "Stock"]
-    gallery: ["img/project-eaton-centre.jpg"]
+      - - '3'
+        - Distribution regions
+      - - 24 hr
+        - Turnaround
+      - - Local
+        - Stock
+    gallery:
+      - img/project-aerial-1600.jpg
