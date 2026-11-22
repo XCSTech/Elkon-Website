@@ -1,96 +1,54 @@
 ---
 nav_prefix: "../"
+page_title: "All Projects"
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Projects — {{ site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
-  <link rel="icon" href="../favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-{% include "styles.njk" %}
-{% include "analytics.njk" %}
+{% include "head.njk" %}
 </head>
 <body>
-
+{% import "icons.njk" as icon %}
 {% include "nav.njk" %}
 
-  <section class="section section-light projects-index">
+  <main id="main">
+  <section class="section section-light page-wrap">
     <div class="container">
-      <div class="section-label">{{ projects.eyebrow }}</div>
-      <h1 class="section-title reveal-left projects-index-heading">All Projects</h1>
-      <p class="section-sub reveal-left projects-index-sub">{{ projects.sub }}</p>
+      <header class="page-head">
+        <p class="section-label">{{ projects.eyebrow }}</p>
+        <h1 class="section-title">All projects</h1>
+        <p class="section-sub">{{ projects.sub }}</p>
+      </header>
 
       <div class="section-cards project-grid">
-        {% for p in projects.items %}<article class="project-card reveal project-card-static">
+        {% for p in projects.items %}<article class="project-card project-card-static">
           <div class="project-card-image">
-            <img src="../{{ p.img }}" alt="{{ p.title }}" loading="lazy">
-            <div class="project-card-badge">{{ p.badge }}</div>
+            <img src="../{{ p.img }}" alt="{{ p.title }}" loading="lazy" width="900" height="600">
+            <span class="img-tag mono">{{ p.badge }}</span>
           </div>
           <div class="project-card-body">
-            <h3>{{ p.title }}</h3>
-            <p class="project-loc">{{ p.loc }}</p>
-            {% if p.tags and p.tags.length %}<div class="project-card-tags">
-              {% for tag in p.tags %}<span class="project-card-tag">{{ tag }}</span>{% endfor %}
-            </div>{% endif %}
+            <h2 class="h3-like">{{ p.title }}</h2>
+            <span class="project-loc mono">{{ p.loc }}</span>
             <p>{{ p.teaser }}</p>
           </div>
         </article>
         {% endfor %}</div>
-
-      <div class="projects-cta reveal" style="margin-top: 3.5rem;">
-        <a href="../#contact" class="btn btn-orange">
-          Request More Information
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-        </a>
-      </div>
     </div>
   </section>
 
+  <section class="section section-dark cta-band">
+    <div class="container cta-band-inner">
+      <h2 class="section-title">Working on something<br>like this?</h2>
+      <div class="hero-ctas">
+        <a class="btn btn-orange" href="../{{ nav.cta_href }}">{{ nav.cta_label }} {{ icon.arrow() | safe }}</a>
+        {% if site.contact.phone_display %}<a class="btn btn-ghost" href="tel:{{ site.contact.phone_link }}">{{ icon.phone() | safe }}{{ site.contact.phone_display }}</a>{% endif %}
+      </div>
+    </div>
+  </section>
+  </main>
+
 {% include "footer.njk" %}
 
-  <script>
-    // Nav scroll effect
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
-
-    // Mobile nav toggle
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', links.classList.contains('open'));
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-    // Reveal animations
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => revealObserver.observe(el));
-  </script>
-
-  <style>
-    .projects-index { padding-top: 8rem; }
-    .projects-index .section-label { color: var(--orange); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1rem; }
-    .projects-index .section-label::before { content: "— "; }
-    .projects-index-heading { margin-bottom: 1rem; }
-    .projects-index-sub { margin-bottom: 3.5rem; max-width: 720px; }
-    .project-card-static { cursor: default; }
-    .project-card-static:hover { transform: none; }
-  </style>
-
+  <script src="../js/site.js?v={{ build.version }}" defer></script>
 </body>
 </html>

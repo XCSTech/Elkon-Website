@@ -13,5 +13,6 @@ contact:
 analytics:
   ga4_measurement_id: ""
   clarity_project_id: "wxvhil3n9s"
+  plausible_domain: ""
 
 copyright: "© 2026 Elkon Products Inc. All rights reserved."

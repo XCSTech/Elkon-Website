@@ -1,8 +1,8 @@
-eyebrow: "Selected Projects"
+eyebrow: "Projects"
 heading: |
   Where our silica
   fume goes to work.
-sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+sub: "Bridges, towers, wind farms and parkades built with Elkon-supplied silica fume. Tap a project for the details."
 
 view_all_cta: "View All Projects"
 
@@ -86,7 +86,7 @@ items:
       - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     stats:
-      - ["4", "Distribution Regions"]
+      - ["3", "Distribution Regions"]
       - ["24hr", "Turnaround"]
       - ["Local", "Stock"]
     gallery: ["img/project-eaton-centre.jpg"]

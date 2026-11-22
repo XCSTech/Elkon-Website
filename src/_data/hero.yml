@@ -3,11 +3,32 @@ heading: |
   Densified Silica&nbsp;Fume
   Supplier
 
+# This text inside the heading is shown in heavy orange
+highlight: "Silica&nbsp;Fume"
+
+kicker:
+  - "Densified & undensified silica fume"
+  - "Construction + Oilfield"
+
+sub: "Stock on the ground in BC, Alberta and Washington State. Bulk, super sacks or bags, delivered when the pour is scheduled."
+
+# PLACEHOLDER: stock photo. Replace with a real Elkon truck / plant / job-site photo.
+image: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=2000&q=75"
+
 primary_cta:
   label: "Request More Information"
   href: "#contact"
+# Shown only when no public phone number is set (otherwise a call button appears)
 secondary_cta:
   label: "Learn More"
   href: "#products"
 
-scroll_label: "Scroll"
+specs:
+  - label: "Standards"
+    value: "ASTM C1240 · CSA A3001"
+  - label: "Packaging"
+    value: "Bulk · Super sack · Bags"
+  - label: "Delivery"
+    value: "Priority delivery AB & BC"
+  - label: "Stock"
+    value: "BC · AB · WA"

@@ -1,87 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
-  <meta property="og:title" content="{{ site.og.title }}">
-  <meta property="og:description" content="{{ site.og.description }}">
-  <meta property="og:type" content="{{ site.og.type }}">
-  <link rel="icon" href="favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-{% include "styles.njk" %}
-{% include "analytics.njk" %}
+{% include "head.njk" %}
 </head>
 <body>
-
-  <!-- ===== NAVIGATION ===== -->
+{% import "icons.njk" as icon %}
 {% include "nav.njk" %}
+
+  <main id="main">
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
-    <div class="hero-photo"></div>
-    <div class="hero-mesh">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
+    <div class="hero-media">
+      <img src="{{ hero.image }}" alt="" width="2000" height="1333" fetchpriority="high">
     </div>
-    <div class="hero-grid"></div>
 
     <div class="container hero-content">
-      <img src="img/logo.jpg" class="hero-brand reveal" alt="Elkon Products">
-      <h1 class="reveal">{{ hero.heading | replace("\n", "<br>") | safe }}</h1>
+      <p class="hero-kicker" data-reveal>
+        {% for k in hero.kicker %}<span>{{ k }}</span>{% endfor %}
+      </p>
+      <h1 class="display" data-split>{{ hero.heading | highlight(hero.highlight) | nl2br | safe }}</h1>
+      <p class="hero-sub" data-reveal style="--delay:250ms">{{ hero.sub }}</p>
 
-      <div class="hero-ctas reveal">
-        <a href="{{ hero.primary_cta.href }}" class="btn btn-orange">
-          {{ hero.primary_cta.label }}
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-        </a>
-        <a href="{{ hero.secondary_cta.href }}" class="btn btn-glass">{{ hero.secondary_cta.label }}</a>
+      <div class="hero-ctas" data-reveal style="--delay:350ms">
+        <a href="{{ hero.primary_cta.href }}" class="btn btn-orange">{{ hero.primary_cta.label }} {{ icon.arrow() | safe }}</a>
+        {% if site.contact.phone_display %}
+        <a href="tel:{{ site.contact.phone_link }}" class="btn btn-ghost" aria-label="Call {{ site.contact.phone_display }}">{{ icon.phone() | safe }}{{ site.contact.phone_display }}</a>
+        {% else %}
+        <a href="{{ hero.secondary_cta.href }}" class="btn btn-ghost">{{ hero.secondary_cta.label }}</a>
+        {% endif %}
       </div>
-    </div>
 
-    <div class="hero-scroll">
-      <div class="scroll-mouse"></div>
-      <span>{{ hero.scroll_label }}</span>
-    </div>
-
-    <div class="hero-wave">
-      <svg viewBox="0 0 1440 90" preserveAspectRatio="none" fill="var(--light)">
-        <path d="M0,45 C360,85 720,5 1080,45 C1260,65 1380,55 1440,45 L1440,90 L0,90 Z"/>
-      </svg>
+      <dl class="hero-spec mono" data-reveal style="--delay:450ms">
+        {% for s in hero.specs %}<div><dt>{{ s.label }}</dt><dd><b>{{ s.value }}</b></dd></div>
+        {% endfor %}</dl>
     </div>
   </section>
 
   <!-- ===== PRODUCTS ===== -->
   <section class="section section-light" id="products">
     <div class="container section-split">
-      <div class="section-eyebrow" data-sticky-head>
-        <div class="section-label">{{ products.eyebrow }}</div>
-      </div>
+      <div class="section-eyebrow"><div class="section-label">{{ products.eyebrow }}</div></div>
 
       <div class="section-content">
-        <h2 class="section-title reveal-left">{{ products.heading | replace("\n", "<br>") | safe }}</h2>
-        <p class="section-sub reveal-left">{{ products.sub }}</p>
+        <h2 class="section-title" data-split>{{ products.heading | nl2br | safe }}</h2>
+        <p class="section-sub" data-reveal>{{ products.sub }}</p>
 
-        <div class="section-cards">
-          {% for product in products.items %}<div class="product-card reveal">
+        <div class="section-cards product-grid">
+          {% for product in products.items %}<article class="product-card">
             <div class="product-card-image">
-              <img src="{{ product.image }}" alt="{{ product.image_alt }}">
-              <div class="product-badge">{{ product.badge }}</div>
+              <img src="{{ product.image }}" alt="{{ product.image_alt }}" width="900" height="600" loading="lazy" decoding="async">
+              <span class="img-tag mono">{{ product.badge }}</span>
             </div>
             <div class="product-card-body">
               <h3>{{ product.name }}</h3>
-              <span class="product-type">{{ product.type }}</span>
+              <span class="product-type mono">{{ product.type }}</span>
               <p>{{ product.description }}</p>
-              <div class="product-tags">
-                {% for tag in product.tags %}<span class="product-tag">{{ tag }}</span>
-                {% endfor %}</div>
+              <ul class="spec-rows">
+                {% for s in product.specs %}<li>{{ s.label }} <b>{{ s.value }}</b></li>
+                {% endfor %}</ul>
+              <a href="#contact" class="card-cta" data-product="{{ product.form_value }}">{{ product.cta_label }} {{ icon.arrow() | safe }}</a>
             </div>
-          </div>
+          </article>
           {% endfor %}</div>
       </div>
     </div>
@@ -90,28 +70,23 @@
   <!-- ===== MARKETS ===== -->
   <section class="section section-dark" id="markets">
     <div class="container section-split">
-      <div class="section-eyebrow" data-sticky-head>
-        <div class="section-label">{{ markets.eyebrow }}</div>
-      </div>
+      <div class="section-eyebrow"><div class="section-label">{{ markets.eyebrow }}</div></div>
 
       <div class="section-content">
-        <h2 class="section-title reveal-left">{{ markets.heading | replace("\n", "<br>") | safe }}</h2>
-        <p class="section-sub reveal-left">{{ markets.sub }}</p>
+        <h2 class="section-title" data-split>{{ markets.heading | nl2br | safe }}</h2>
+        <p class="section-sub" data-reveal>{{ markets.sub }}</p>
 
-        <div class="section-cards">
-          {% for panel in markets.panels %}<div class="market-panel reveal">
+        <div class="section-cards market-list">
+          {% for panel in markets.panels %}<article class="market-panel">
             <div class="market-image-wrap">
-              <img class="market-image" src="{{ panel.image }}" alt="{{ panel.image_alt }}" loading="lazy">
+              <img class="market-image" src="{{ panel.image }}" alt="{{ panel.image_alt }}" width="1600" height="900" loading="lazy" decoding="async">
             </div>
             <div class="market-body">
               <span class="market-number">{{ panel.number }}</span>
               <h3>{{ panel.heading }}</h3>
               <p>{{ panel.description }}</p>
-              <div class="market-apps">
-                {% for app in panel.apps %}<span class="market-app">{{ app }}</span>
-                {% endfor %}</div>
             </div>
-          </div>
+          </article>
           {% endfor %}</div>
       </div>
     </div>
@@ -120,74 +95,48 @@
   <!-- ===== PROJECTS ===== -->
   <section class="section section-light" id="projects">
     <div class="container section-split">
-      <div class="section-eyebrow" data-sticky-head>
-        <div class="section-label">{{ projects.eyebrow }}</div>
-      </div>
+      <div class="section-eyebrow"><div class="section-label">{{ projects.eyebrow }}</div></div>
 
       <div class="section-content">
-        <h2 class="section-title reveal-left">{{ projects.heading | replace("\n", "<br>") | safe }}</h2>
-        <p class="section-sub reveal-left">{{ projects.sub }}</p>
+        <h2 class="section-title" data-split>{{ projects.heading | nl2br | safe }}</h2>
+        <p class="section-sub" data-reveal>{{ projects.sub }}</p>
 
         <div class="section-cards project-grid"></div>
+        <noscript><ul>{% for proj in projects.items %}<li>{{ proj.title }}, {{ proj.loc }}</li>{% endfor %}</ul></noscript>
 
-        <div class="projects-cta reveal">
-          <a href="projects/" class="btn btn-orange">
-            {{ projects.view_all_cta }}
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-          </a>
-        </div>
+        <p class="projects-more">
+          <a href="projects/" class="btn btn-ink">{{ projects.view_all_cta }} {{ icon.arrow() | safe }}</a>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ===== PROJECT MODAL ===== -->
-  <div class="project-modal" id="projectModal" aria-hidden="true">
-    <div class="project-modal-backdrop" data-modal-close></div>
-    <div class="project-modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="project-modal-close" data-modal-close aria-label="Close project details">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
-      </button>
-      <div class="project-modal-body" id="modalBody"></div>
-    </div>
-  </div>
-
-  <!-- ===== STATS ===== -->
-  <section class="section section-dark stats-section" id="stats">
+  <!-- ===== COVERAGE (stats + map) ===== -->
+  <section class="section section-dark" id="coverage">
     <div class="container section-split">
-      <div class="section-eyebrow" data-sticky-head>
-        <div class="section-label">{{ stats.eyebrow }}</div>
-      </div>
+      <div class="section-eyebrow"><div class="section-label">{{ stats.eyebrow }}</div></div>
 
       <div class="section-content">
-      <h2 class="section-title reveal-left" style="margin-bottom:3rem;">{{ stats.heading }}</h2>
-      <div class="stats-grid">
-        <div class="stat-card reveal">
-          <div class="stat-number"><span class="counter" data-founded="{{ stats.cards.years.founded_year }}">0</span><span class="suffix">{{ stats.cards.years.suffix }}</span></div>
-          <div class="stat-label">{{ stats.cards.years.label }}</div>
-          <div class="stat-divider"></div>
-          <p class="stat-blurb">{{ stats.cards.years.blurb }}</p>
+        <h2 class="section-title proof-title" data-split>{{ stats.heading | nl2br | safe }}</h2>
+
+        {% set years = stats.cards.years.founded_year | yearsSince %}
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-number"><span data-count="{{ years }}">{{ years }}</span><span class="suffix">{{ stats.cards.years.suffix }}</span></div>
+            <div class="stat-label mono">{{ stats.cards.years.label }}</div>
+            <p class="stat-blurb">{{ stats.cards.years.blurb }}</p>
+          </div>
+          <div class="stat">
+            <div class="stat-number"><span class="suffix">{{ stats.cards.rank.prefix }}</span>{{ stats.cards.rank.target }}</div>
+            <div class="stat-label mono">{{ stats.cards.rank.label }}</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number"><span data-count="{{ stats.cards.regions.target }}">{{ stats.cards.regions.target }}</span></div>
+            <div class="stat-label mono">{{ stats.cards.regions.label }}</div>
+          </div>
         </div>
-        <div class="stat-card reveal stat-card-center">
-          <div class="stat-number"><span class="suffix">{{ stats.cards.rank.prefix }}</span><span class="counter" data-target="{{ stats.cards.rank.target }}">0</span></div>
-          <div class="stat-label">{{ stats.cards.rank.label }}</div>
-          <div class="stat-divider"></div>
-        </div>
-        <div class="stat-card reveal">
-          <div class="stat-number"><span class="counter" data-target="{{ stats.cards.regions.target }}">0</span></div>
-          <div class="stat-label">{{ stats.cards.regions.label }}</div>
-          <div class="stat-divider"></div>
-          <ul class="stat-locations">
-            {% for loc in stats.cards.regions.locations %}<li>{{ loc | safe }}</li>
-            {% endfor %}</ul>
-        </div>
-        <div class="stat-card reveal stat-card-tall">
-          <div class="stat-headline">{{ stats.cards.certifications.headline | replace("\n", "<br>") | safe }}</div>
-          <div class="stat-divider"></div>
-          <ul class="stat-certs">
-            {% for cert in stats.cards.certifications.items %}<li>{{ cert | replace(">", "&gt;") | safe }}</li>
-            {% endfor %}</ul>
-        </div>
-      </div>
+
+{% include "coverage-map.njk" %}
       </div>
     </div>
   </section>
@@ -195,377 +144,153 @@
   <!-- ===== DOSAGE CALCULATOR ===== -->
   <section class="section section-light" id="calculator">
     <div class="container section-split">
-      <div class="section-eyebrow" data-sticky-head>
-        <div class="section-label">{{ calculator.eyebrow }}</div>
-      </div>
+      <div class="section-eyebrow"><div class="section-label">{{ calculator.eyebrow }}</div></div>
 
       <div class="section-content">
-      <h2 class="section-title reveal-left">{{ calculator.heading | replace("\n", "<br>") | safe }}</h2>
-      <p class="section-sub reveal-left" style="margin-bottom:3rem;">{{ calculator.sub }}</p>
+        <h2 class="section-title" data-split>{{ calculator.heading | nl2br | safe }}</h2>
+        <p class="section-sub" data-reveal>{{ calculator.sub }}</p>
 
-      <div class="calc-card reveal">
-        <div class="calc-grid">
-          <div class="calc-form-side">
-            <h3 class="calc-side-heading">{{ calculator.form_heading }}</h3>
-            <div class="form-group">
-              <label for="application">Application</label>
-              <select id="application">
-                <option value="general">General HPC (5-8%)</option>
-                <option value="marine">Marine / Coastal (8-10%)</option>
-                <option value="bridge">Bridge Deck / Highway (7-9%)</option>
-                <option value="shotcrete">Shotcrete (8-12%)</option>
-                <option value="uhpc">Ultra-High Performance (15-25%)</option>
-                <option value="oilwell">Oil Well Cementing (10-15%)</option>
-              </select>
+        <div class="calc-card">
+          <div class="calc-grid">
+            <div class="calc-form-side">
+              <h3 class="calc-side-heading mono">{{ calculator.form_heading }}</h3>
+              <div class="form-group">
+                <label for="application">Application</label>
+                <select id="application">
+                  <option value="general">General HPC (5–8%)</option>
+                  <option value="marine">Marine / coastal (8–10%)</option>
+                  <option value="bridge">Bridge deck / highway (7–9%)</option>
+                  <option value="shotcrete">Shotcrete (8–12%)</option>
+                  <option value="uhpc">Ultra-high performance (15–25%)</option>
+                  <option value="oilwell">Oil well cementing (10–15%)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="volume">Concrete / cement volume (m³)</label>
+                <input type="number" id="volume" inputmode="decimal" placeholder="e.g. 500" min="1">
+              </div>
+              <div class="form-group">
+                <label for="cement">Cement content (kg/m³)</label>
+                <input type="number" id="cement" inputmode="decimal" placeholder="e.g. 400" min="100" value="400">
+              </div>
+              <div class="calc-actions">
+                <button type="button" class="btn btn-ink" id="calcBtn">{{ calculator.cta_label }}</button>
+                <a href="#contact" class="btn btn-orange" id="calcQuoteBtn" hidden>{{ calculator.quote_cta_label }} {{ icon.arrow() | safe }}</a>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="volume">Concrete / Cement Volume (m³)</label>
-              <input type="number" id="volume" placeholder="e.g. 500" min="1">
-            </div>
-            <div class="form-group">
-              <label for="cement">Cement Content (kg/m³)</label>
-              <input type="number" id="cement" placeholder="e.g. 400" min="100" value="400">
-            </div>
-          </div>
 
-          <div class="calc-result-side" id="calcResult">
-            <h3 class="calc-side-heading">{{ calculator.result_heading }}</h3>
-            <div class="result-row">
-              <span class="result-label">{{ calculator.result_labels.dosage }}</span>
-              <span class="result-value" id="dosageRate">&mdash;<span class="unit">%</span></span>
-            </div>
-            <div class="result-row">
-              <span class="result-label">{{ calculator.result_labels.total }}</span>
-              <span class="result-value highlight" id="totalKg">&mdash;<span class="unit">kg</span></span>
-            </div>
-            <div class="result-row">
-              <span class="result-label">{{ calculator.result_labels.sacks }}</span>
-              <span class="result-value" id="sacks">&mdash;</span>
-            </div>
-            <div class="result-row">
-              <span class="result-label">{{ calculator.result_labels.tonnes }}</span>
-              <span class="result-value" id="tonnes">&mdash;<span class="unit">t</span></span>
+            <div class="calc-result-side" id="calcResult" aria-live="polite">
+              <h3 class="calc-side-heading mono">{{ calculator.result_heading }}</h3>
+              <div class="result-row"><span class="result-label mono">{{ calculator.result_labels.dosage }}</span><span class="result-value" id="dosageRate">&mdash;<span class="unit">%</span></span></div>
+              <div class="result-row"><span class="result-label mono">{{ calculator.result_labels.total }}</span><span class="result-value highlight" id="totalKg">&mdash;<span class="unit">kg</span></span></div>
+              <div class="result-row"><span class="result-label mono">{{ calculator.result_labels.sacks }}</span><span class="result-value" id="sacks">&mdash;</span></div>
+              <div class="result-row"><span class="result-label mono">{{ calculator.result_labels.tonnes }}</span><span class="result-value" id="tonnes">&mdash;<span class="unit">t</span></span></div>
+              <p class="calc-note mono">{{ calculator.note }}</p>
             </div>
           </div>
         </div>
-
-        <div class="calc-actions">
-          <button class="calc-btn" id="calcBtn">{{ calculator.cta_label }}</button>
-          <a href="#contact" class="calc-quote-btn" id="calcQuoteBtn" hidden>
-            {{ calculator.quote_cta_label }}
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-          </a>
-        </div>
-      </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CONTACT / QUOTE ===== -->
+  <!-- ===== CONTACT ===== -->
   <section class="section section-dark" id="contact">
     <div class="container section-split">
-      <div class="section-eyebrow" data-sticky-head>
-        <div class="section-label">{{ contact.eyebrow }}</div>
-      </div>
+      <div class="section-eyebrow"><div class="section-label">{{ contact.eyebrow }}</div></div>
 
       <div class="section-content">
-      <h2 class="section-title reveal-left">{{ contact.heading | replace("\n", "<br>") | safe }}</h2>
+        <h2 class="section-title" data-split>{{ contact.heading | nl2br | safe }}</h2>
 
-      <div class="contact-grid">
-        <div class="contact-info reveal-left">
-          <h3>{{ contact.info_heading }}</h3>
-          <p>{{ contact.info_blurb }}</p>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>{{ contact.info_heading }}</h3>
+            <p>{{ contact.info_blurb }}</p>
 
-          {% if site.contact.phone_display %}<div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
-            </div>
-            <div>
-              <a href="tel:{{ site.contact.phone_link }}">{{ site.contact.phone_display }}</a>
-              <small>{{ contact.phone_subline }}</small>
-            </div>
-          </div>{% endif %}
+            {% if site.contact.phone_display %}
+            <a class="contact-big" href="tel:{{ site.contact.phone_link }}">{{ icon.phone(1.75) | safe }}{{ site.contact.phone_display }}</a>
+            <span class="mono" style="color:var(--text-inv-muted)">{{ contact.phone_subline }}</span>
+            {% endif %}
 
-          <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
-            </div>
-            <div>
-              <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
-              <small>{{ contact.email_subline }}</small>
-            </div>
+            <ul class="contact-rows">
+              <li><span class="mono">Email</span><span class="row-val">{{ icon.mail() | safe }}<a class="link-draw" href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></span></li>
+              <li><span class="mono">Delivery</span><span class="row-val">{{ icon.truck() | safe }}{{ contact.delivery_label }} {{ contact.delivery_subline | safe }}</span></li>
+            </ul>
           </div>
 
-          <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+          {% set f = contact.form.fields %}
+          <form class="quote-form" id="quoteForm" data-static novalidate>
+            <h3>{{ contact.form.heading }}</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="quote-name">{{ f.name }}</label>
+                <input type="text" id="quote-name" name="name" autocomplete="name" placeholder="{{ f.name_placeholder }}" required>
+              </div>
+              <div class="form-group">
+                <label for="quote-company">{{ f.company }} <span class="opt">(optional)</span></label>
+                <input type="text" id="quote-company" name="company" autocomplete="organization" placeholder="{{ f.company_placeholder }}">
+              </div>
             </div>
-            <div>
-              <a href="#stats">{{ contact.delivery_label }}</a>
-              <small>{{ contact.delivery_subline | safe }}</small>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="quote-email">{{ f.email }}</label>
+                <input type="email" id="quote-email" name="email" autocomplete="email" placeholder="{{ f.email_placeholder }}" required>
+              </div>
+              <div class="form-group">
+                <label for="quote-phone">{{ f.phone }}</label>
+                <input type="tel" id="quote-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="{{ f.phone_placeholder }}">
+              </div>
             </div>
-          </div>
-        </div>
 
-        <form class="quote-form reveal-right" onsubmit="return false;">
-          <h3>{{ contact.form.heading }}</h3>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="quote-name">{{ contact.form.fields.name }}</label>
-              <input type="text" id="quote-name" placeholder="{{ contact.form.fields.name_placeholder }}">
+            <fieldset class="form-group">
+              <legend>{{ f.product }}</legend>
+              <div class="check-row">
+                {% for opt in contact.form.product_options %}<label class="check"><input type="checkbox" name="product[]" value="{{ opt.value }}">{{ opt.label }}</label>
+                {% endfor %}</div>
+            </fieldset>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="quote-quantity">{{ f.quantity }}</label>
+                <input type="text" id="quote-quantity" name="quantity" placeholder="{{ f.quantity_placeholder }}">
+              </div>
+              <div class="form-group">
+                <label for="quote-location">{{ f.location }}</label>
+                <input type="text" id="quote-location" name="location" autocomplete="address-level2" placeholder="{{ f.location_placeholder }}" required>
+              </div>
             </div>
             <div class="form-group">
-              <label for="quote-company">{{ contact.form.fields.company }}</label>
-              <input type="text" id="quote-company" placeholder="{{ contact.form.fields.company_placeholder }}">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="quote-email">{{ contact.form.fields.email }}</label>
-              <input type="email" id="quote-email" placeholder="{{ contact.form.fields.email_placeholder }}">
-            </div>
-            <div class="form-group">
-              <label for="quote-phone">{{ contact.form.fields.phone }}</label>
-              <input type="tel" id="quote-phone" placeholder="{{ contact.form.fields.phone_placeholder }}">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="quote-product">{{ contact.form.fields.product }}</label>
-              <select id="quote-product">
-                {% for opt in contact.form.product_options %}<option value="{{ opt.value }}">{{ opt.label }}</option>
-                {% endfor %}</select>
-            </div>
-            <div class="form-group">
-              <label for="quote-quantity">{{ contact.form.fields.quantity }}</label>
-              <input type="text" id="quote-quantity" placeholder="{{ contact.form.fields.quantity_placeholder }}">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="quote-location">{{ contact.form.fields.location }}</label>
-              <input type="text" id="quote-location" placeholder="{{ contact.form.fields.location_placeholder }}">
-            </div>
-            <div class="form-group">
-              <label for="quote-contact-method">{{ contact.form.fields.contact_method }}</label>
-              <select id="quote-contact-method">
+              <label for="quote-contact-method">{{ f.contact_method }}</label>
+              <select id="quote-contact-method" name="contact_method">
                 {% for opt in contact.form.contact_method_options %}<option value="{{ opt.value }}">{{ opt.label }}</option>
                 {% endfor %}</select>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="quote-message">{{ contact.form.fields.message }}</label>
-            <textarea id="quote-message" placeholder="{{ contact.form.fields.message_placeholder }}"></textarea>
-          </div>
-          <button type="submit" class="submit-btn">{{ contact.form.submit_label }}</button>
-        </form>
-      </div>
+            <div class="form-group">
+              <label for="quote-message">{{ f.message }} <span class="opt">(optional)</span></label>
+              <textarea id="quote-message" name="message" placeholder="{{ f.message_placeholder }}"></textarea>
+            </div>
+            <button type="submit" class="btn btn-orange btn-block">{{ contact.form.submit_label }}</button>
+            <p class="form-status" id="formStatus" role="status" hidden></p>
+            <p class="form-fine">We only use your details to answer this request.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  </main>
+
 {% include "footer.njk" %}
 
-  <!-- ===== SCRIPTS ===== -->
-  <script>
-    // ---- Nav scroll effect ----
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
+  <!-- ===== PROJECT MODAL ===== -->
+  <div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="project-modal-backdrop" data-modal-close></div>
+    <div class="project-modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="project-modal-close" data-modal-close aria-label="Close project details">{{ icon.close() | safe }}</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
 
-    // ---- Mobile nav toggle ----
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', links.classList.contains('open'));
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-    // ---- Smooth scroll for anchor links ----
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-          const offset = 80;
-          const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-      });
-    });
-
-    // ---- Reveal on scroll (with stagger) ----
-    const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale';
-    const allReveals = document.querySelectorAll(revealSelectors);
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    allReveals.forEach(el => revealObserver.observe(el));
-
-    // Stagger siblings
-    document.querySelectorAll('.project-grid, .stats-grid, .section-cards').forEach(grid => {
-      const children = grid.querySelectorAll(revealSelectors);
-      children.forEach((child, i) => {
-        child.style.transitionDelay = `${i * 0.12}s`;
-      });
-    });
-
-    // ---- Counter animation ----
-    const counters = document.querySelectorAll('.counter');
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = el.dataset.founded
-            ? new Date().getFullYear() - parseInt(el.dataset.founded)
-            : parseInt(el.dataset.target);
-          const duration = 1800;
-          const start = performance.now();
-          function tick(now) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 4);
-            el.textContent = Math.round(target * eased);
-            if (progress < 1) requestAnimationFrame(tick);
-          }
-          requestAnimationFrame(tick);
-          counterObserver.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    counters.forEach(c => counterObserver.observe(c));
-
-    // ---- Sticky-title fade as section ends + stuck-state for mobile pill ----
-    const stickyHeads = document.querySelectorAll('[data-sticky-head]');
-    const handleStickyFade = () => {
-      stickyHeads.forEach(head => {
-        const section = head.closest('section');
-        if (!section) return;
-        const sectionRect = section.getBoundingClientRect();
-        const headRect = head.getBoundingClientRect();
-        // Distance from section bottom to viewport center
-        const fadeStartFromBottom = headRect.height + 180;
-        const remaining = sectionRect.bottom - headRect.top;
-        if (remaining < fadeStartFromBottom && sectionRect.bottom > 0) {
-          head.classList.add('fading');
-        } else {
-          head.classList.remove('fading');
-        }
-
-        // Stuck state — top of pill has reached its sticky offset
-        const stickyOffset = parseFloat(getComputedStyle(head).top) || 0;
-        head.classList.toggle('stuck', headRect.top <= stickyOffset + 1);
-      });
-    };
-    window.addEventListener('scroll', handleStickyFade, { passive: true });
-    window.addEventListener('resize', handleStickyFade, { passive: true });
-    handleStickyFade();
-
-    // ---- Projects ----
-    const projects = {{ projects.items | dump | safe }};
-
-    const projectGrid = document.querySelector('.project-grid');
-    projects.forEach((p, i) => {
-      const card = document.createElement('button');
-      card.type = 'button';
-      card.className = 'project-card reveal';
-      card.dataset.projectId = p.id;
-      card.style.transitionDelay = `${(i % 2) * 0.1}s`;
-      card.innerHTML = `
-        <div class="project-card-image">
-          <img src="${p.img}" alt="${p.title}" loading="lazy">
-          <div class="project-card-badge">${p.badge}</div>
-        </div>
-        <div class="project-card-body">
-          <h3>${p.title}</h3>
-          <p class="project-loc">${p.loc}</p>
-          ${p.tags && p.tags.length ? `<div class="project-card-tags">${p.tags.map(t => `<span class="project-card-tag">${t}</span>`).join('')}</div>` : ''}
-          <p>${p.teaser}</p>
-        </div>
-      `;
-      card.addEventListener('click', () => openProjectModal(p));
-      projectGrid.appendChild(card);
-      revealObserver.observe(card);
-    });
-
-    const modal = document.getElementById('projectModal');
-    const modalBody = document.getElementById('modalBody');
-    function openProjectModal(p) {
-      modalBody.innerHTML = `
-        <img class="modal-hero-img" src="${p.img}" alt="${p.title}">
-        <div class="modal-text">
-          <div class="project-card-badge">${p.badge}</div>
-          <h3>${p.title}</h3>
-          <p class="project-loc">${p.loc}</p>
-          ${p.long.map(par => `<p>${par}</p>`).join('')}
-          ${p.stats ? `<div class="modal-stats">${p.stats.map(s => `<div><div class="modal-stat-num">${s[0]}</div><div class="modal-stat-label">${s[1]}</div></div>`).join('')}</div>` : ''}
-          ${p.gallery && p.gallery.length > 1 ? `<div class="modal-gallery">${p.gallery.map(g => `<img src="${g}" alt="${p.title} additional view" loading="lazy">`).join('')}</div>` : ''}
-        </div>
-      `;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
-    }
-    function closeProjectModal() {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
-    }
-    modal.querySelectorAll('[data-modal-close]').forEach(el => el.addEventListener('click', closeProjectModal));
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProjectModal(); });
-
-    // ---- Calculator ----
-    const dosageRanges = {
-      general: [5, 8], marine: [8, 10], bridge: [7, 9],
-      shotcrete: [8, 12], uhpc: [15, 25], oilwell: [10, 15],
-    };
-
-    let lastCalcTotalKg = null;
-
-    document.getElementById('calcBtn').addEventListener('click', () => {
-      const app = document.getElementById('application').value;
-      const volume = parseFloat(document.getElementById('volume').value);
-      const cement = parseFloat(document.getElementById('cement').value);
-      if (!volume || !cement) return;
-
-      const range = dosageRanges[app];
-      const midDosage = (range[0] + range[1]) / 2;
-      const totalKg = Math.round(volume * cement * (midDosage / 100));
-      const sacks = Math.ceil(totalKg / 1000);
-      const tonnes = (totalKg / 1000).toFixed(1);
-
-      document.getElementById('dosageRate').innerHTML = `${range[0]}\u2013${range[1]}<span class="unit">%</span>`;
-      document.getElementById('totalKg').innerHTML = `${totalKg.toLocaleString()}<span class="unit">kg</span>`;
-      document.getElementById('sacks').textContent = sacks;
-      document.getElementById('tonnes').innerHTML = `${tonnes}<span class="unit">t</span>`;
-
-      lastCalcTotalKg = totalKg;
-
-      const quoteBtn = document.getElementById('calcQuoteBtn');
-      quoteBtn.hidden = false;
-
-      const result = document.getElementById('calcResult');
-      result.style.animation = 'none';
-      result.offsetHeight;
-      result.style.animation = 'pulse-once 0.35s ease';
-    });
-
-    document.getElementById('calcQuoteBtn').addEventListener('click', () => {
-      if (lastCalcTotalKg == null) return;
-      const quantityField = document.getElementById('quote-quantity');
-      if (quantityField) quantityField.value = `${lastCalcTotalKg.toLocaleString()} kg`;
-    });
-  </script>
-
+  <script type="application/json" id="projects-data">{{ projects.items | jsonScript | safe }}</script>
+  <script src="js/site.js?v={{ build.version }}" defer></script>
 </body>
 </html>

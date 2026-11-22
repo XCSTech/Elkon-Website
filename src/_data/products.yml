@@ -1,28 +1,39 @@
-eyebrow: "What We Supply"
+eyebrow: "What we supply"
 heading: |
   Two products.
   Two industries.
-sub: "We supply densified and undensified silica fume — a pozzolanic admixture that dramatically increases the strength, durability, and chemical resistance of concrete and well cement."
+sub: "Silica fume is an ultra-fine pozzolan that makes concrete and well cement stronger, denser and more resistant to chemical attack. We supply it in the form your plant or rig is set up for."
 
 items:
   - badge: "Construction"
-    image: "https://images.unsplash.com/photo-1536566482680-fca31930a0bd?w=800&q=80"
-    image_alt: "Concrete texture showing the strength that silica fume adds"
+    image: "https://images.unsplash.com/photo-1536566482680-fca31930a0bd?w=900&q=75"
+    image_alt: "Close-up of high-strength concrete surface"
     name: "Densified Silica Fume"
-    type: "Construction"
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    tags:
-      - "Bulk Pneumatic"
-      - "Super Sacks"
-      - "Palletized Bags"
+    type: "Pellets / Ready-mix & precast"
+    description: "Pelletized for clean handling and batching at ready-mix and precast plants. Used for bridges, highways, marine work, parkades and high-performance concrete."
+    specs:
+      - label: "Form"
+        value: "Densified pellets"
+      - label: "Packaging"
+        value: "Bulk pneumatic · Super sacks · Palletized bags"
+      - label: "Standards"
+        value: "ASTM C1240 · CSA A3001"
+    # Ticks this product in the contact form when the card is clicked
+    form_value: "densified"
+    cta_label: "Ask about densified"
 
   - badge: "Oilfield"
-    image: "https://images.unsplash.com/photo-1563883830555-79971475cc22?w=800&q=80"
-    image_alt: "Oil drilling rig representing oilfield applications"
+    image: "https://images.unsplash.com/photo-1563883830555-79971475cc22?w=900&q=75"
+    image_alt: "Drilling rig on an oilfield lease"
     name: "Undensified Silica Fume"
-    type: "Oilfield"
-    description: "Raw powder form for well cementing and drilling fluid applications. Improves well cement integrity, compressive strength, and resistance to downhole chemical attack in oil and gas operations."
-    tags:
-      - "Well Cementing"
-      - "Drilling Fluids"
-      - "API/ISO Compliant"
+    type: "Powder / Well cementing"
+    description: "Raw powder for well cementing and drilling fluids. Raises compressive strength, cuts permeability and resists downhole chemical attack."
+    specs:
+      - label: "Form"
+        value: "Undensified powder"
+      - label: "Uses"
+        value: "Well cementing · Drilling fluids"
+      - label: "Standards"
+        value: "API Spec 10A · ISO 10426"
+    form_value: "undensified"
+    cta_label: "Ask about undensified"

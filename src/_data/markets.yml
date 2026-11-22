@@ -1,31 +1,20 @@
-eyebrow: "Markets We Serve"
+eyebrow: "Markets"
 heading: |
-  Built for the
-  toughest environments.
-sub: "From highrise foundations to 3,000-metre well bores — our silica fume performs where it matters most."
+  From bridge decks
+  to well bores.
+sub: "High-rise foundations, marine structures and 3,000-metre wells. Same material, two very different jobs."
 
 panels:
-  - number: "01 — Construction"
-    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80"
-    image_alt: "Industrial concrete high-rise building"
-    heading: "Infrastructure That Lasts Generations"
-    description: "Silica fume-enhanced concrete achieves compressive strengths exceeding 100 MPa and dramatically reduces permeability — extending the service life of structures to 100+ years, even in harsh marine and freeze-thaw environments."
-    apps:
-      - "Bridges & Highways"
-      - "Marine Structures"
-      - "Parking Structures"
-      - "High-Rise Foundations"
-      - "Shotcrete"
-      - "HPC / UHPC"
+  - number: "Construction"
+    # PLACEHOLDER: stock photo. Replace with a real Elkon construction job.
+    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=75"
+    image_alt: "Concrete high-rise towers"
+    heading: "Concrete that outlasts the mortgage"
+    description: "Silica fume concrete reaches compressive strengths over 100 MPa and cuts permeability sharply. That's what keeps chlorides off the rebar for a 100-year service life, even in marine and freeze-thaw exposure."
 
-  - number: "02 — Oilfield"
-    image: "https://images.unsplash.com/photo-1624771002998-4aadfd43e7c4?w=1600&q=80"
-    image_alt: "Onshore oil pump jack in field"
-    heading: "Well Integrity Under Pressure"
-    description: "In oil and gas cementing, silica fume increases compressive strength, reduces permeability, and resists chemical attack from formation fluids — critical for well integrity at depth and temperature."
-    apps:
-      - "Primary Cementing"
-      - "Squeeze Jobs"
-      - "Plug & Abandonment"
-      - "Drilling Fluids"
-      - "Thermal Wells"
+  - number: "Oilfield"
+    # PLACEHOLDER: stock photo. Replace with a real oilfield delivery / cementing job.
+    image: "https://images.unsplash.com/photo-1624771002998-4aadfd43e7c4?w=1600&q=75"
+    image_alt: "Pump jack on an Alberta oil lease"
+    heading: "Well integrity under pressure"
+    description: "In oil and gas cementing, silica fume raises compressive strength, lowers permeability and resists attack from formation fluids. It matters most at depth and temperature."

@@ -1,31 +1,35 @@
-eyebrow: "By The Numbers"
-heading: "Why choose Elkon."
+eyebrow: "Coverage"
+heading: |
+  Local stock.
+  Tested product.
+  Real people to deal with.
 
 cards:
   years:
     founded_year: 1996
     suffix: "+"
-    label: "Years in Business"
-    blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    label: "Years in business"
+    blurb: "Started as a family business densifying silica fume from silicon and ferrosilicon mills."
 
   rank:
     target: 1
     prefix: "#"
-    label: "Densified Supplier in Canada"
+    label: "Densified supplier in Canada"
 
   regions:
     target: 3
-    label: "Distribution Regions"
+    label: "Distribution regions"
+    # "Where we stock" list beside the map
     locations:
-      - "Alberta &mdash; Edmonton"
-      - "British Columbia"
-      - "Washington State"
+      - place: "Edmonton, AB"
+        role: "Hub"
+      - place: "Lower Mainland, BC"
+        role: "Delivery"
+      - place: "Tacoma, WA"
+        role: "Distribution"
 
   certifications:
-    headline: |
-      Tested.
-      Certified.
-      Compliant.
+    headline: "Tested to"
     items:
       - "ASTM C1240"
       - "CSA A3001"
@@ -34,3 +38,8 @@ cards:
       - "API Spec 10A"
       - "ISO 10426"
       - "SiO₂ > 85%"
+
+map:
+  heading: "Where we stock"
+  caption: "Fig. 1 / Western stock locations"
+  credit: "Outlines: Natural Earth"

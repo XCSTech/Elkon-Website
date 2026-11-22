@@ -1,17 +1,17 @@
+{# Analytics. Each service loads only when its ID is set in Site Settings (src/_data/site.yml).
+   - Clarity + Plausible are handled by js/analytics.js, which also sends the Elkon custom
+     events (Phone Click, Email Click, Quote Request, Calculator Used, Project Viewed, ...).
+   - GA4 is optional and loads separately if an ID is entered. #}
+{% set p = nav_prefix | default('') %}
 {% if site.analytics.ga4_measurement_id %}<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.ga4_measurement_id }}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{ site.analytics.ga4_measurement_id }}');
-</script>
-{% endif %}{% if site.analytics.clarity_project_id %}<!-- Microsoft Clarity -->
-<script>
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "{{ site.analytics.clarity_project_id }}");
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.ga4_measurement_id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.analytics.ga4_measurement_id }}');
+  </script>
+{% endif %}{% if site.analytics.clarity_project_id or site.analytics.plausible_domain %}
+  <script>window.ELKON_ANALYTICS = {{ { clarityId: site.analytics.clarity_project_id or '', plausibleDomain: site.analytics.plausible_domain or '' } | dump | safe }};</script>
+  <script src="{{ p }}js/analytics.js?v={{ build.version }}" defer></script>
 {% endif %}

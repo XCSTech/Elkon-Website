@@ -1,16 +1,16 @@
-eyebrow: "Get In Touch"
+eyebrow: "Get in touch"
 heading: |
-  Ready to order?
-  Let's talk.
+  Tell us what
+  you need.
 
-info_heading: "We respond fast."
-info_blurb: "Whether you need a truckload or a quote for a major project, we'll get back to you within hours — not days."
+info_heading: "Talk to the people who ship it"
+info_blurb: "Send a few details about the job and we'll come back with pricing, stock and delivery windows, usually within a few hours."
 
 phone_subline: "Call or text"
 email_subline: "Email us anytime"
 
-delivery_label: "Priority Delivery Available"
-delivery_subline: "Available in AB & BC"
+delivery_label: "Priority delivery available"
+delivery_subline: "in Alberta & BC"
 
 form:
   heading: "Request More Information"

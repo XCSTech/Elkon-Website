@@ -1,0 +1,19 @@
+{# Shared <head> contents. Pages set `page_title` (optional) and `nav_prefix` ("../" on sub-pages). #}
+{% set p = nav_prefix | default('') %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page_title %}{{ page_title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta name="theme-color" content="#285a7e">
+  <meta property="og:title" content="{{ site.og.title }}">
+  <meta property="og:description" content="{{ site.og.description }}">
+  <meta property="og:type" content="{{ site.og.type }}">
+  <link rel="icon" href="{{ p }}favicon.ico">
+
+  <script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ p }}css/site.css?v={{ build.version }}">
+{% include "analytics.njk" %}

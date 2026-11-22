@@ -55,7 +55,8 @@ collections:
             widget: "object"
             fields:
               - { label: "Google Analytics 4 Measurement ID", name: "ga4_measurement_id", widget: "string", required: false, hint: "Format: G-XXXXXXXXXX. Leave blank to disable." }
-              - { label: "Microsoft Clarity Project ID", name: "clarity_project_id", widget: "string", required: false, hint: "10-character ID from clarity.microsoft.com. Leave blank to disable." }
+              - { label: "Microsoft Clarity Project ID", name: "clarity_project_id", widget: "string", required: false, hint: "10-character ID from clarity.microsoft.com. Real-user page speed, recordings, heatmaps. Leave blank to disable." }
+              - { label: "Plausible Domain", name: "plausible_domain", widget: "string", required: false, hint: "Exactly as entered in Plausible, e.g. elkonproducts.com. Traffic + goals. Leave blank to disable." }
           - { label: "Copyright Text", name: "copyright", widget: "string" }
 
       - file: "src/_data/nav.yml"
@@ -75,9 +76,9 @@ collections:
         label: "Footer"
         name: "footer"
         fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - { label: "Brand Sub", name: "brand_sub", widget: "string" }
-          - { label: "Badges", name: "badges", widget: "list" }
+          - { label: "Tagline (under logo)", name: "tagline", widget: "text" }
+          - { label: "Bottom Line", name: "base_line", widget: "string" }
+          - { label: "Memberships", name: "badges", widget: "list" }
 
   - name: "sections"
     label: "Page Sections"
@@ -87,19 +88,28 @@ collections:
         name: "hero"
         fields:
           - { label: "Heading (one line per row break)", name: "heading", widget: "text" }
+          - { label: "Highlighted Words", name: "highlight", widget: "string", required: false, hint: "Text inside the heading to show in heavy orange, copied exactly (e.g. Silica&nbsp;Fume)" }
+          - { label: "Kicker (small line above heading)", name: "kicker", widget: "list" }
+          - { label: "Sub Text", name: "sub", widget: "text" }
+          - { label: "Background Photo URL", name: "image", widget: "string" }
           - label: "Primary CTA"
             name: "primary_cta"
             widget: "object"
             fields:
               - { label: "Label", name: "label", widget: "string" }
               - { label: "Href", name: "href", widget: "string" }
-          - label: "Secondary CTA"
+          - label: "Secondary CTA (shown when no public phone is set)"
             name: "secondary_cta"
             widget: "object"
             fields:
               - { label: "Label", name: "label", widget: "string" }
               - { label: "Href", name: "href", widget: "string" }
-          - { label: "Scroll Indicator Label", name: "scroll_label", widget: "string" }
+          - label: "Spec Strip (bottom of hero)"
+            name: "specs"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Value", name: "value", widget: "string" }
 
       - file: "src/_data/products.yml"
         label: "Products"
@@ -118,7 +128,14 @@ collections:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Type", name: "type", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Tags", name: "tags", widget: "list" }
+              - label: "Spec Rows"
+                name: "specs"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "string" }
+              - { label: "Link Label", name: "cta_label", widget: "string" }
+              - { label: "Form Product Value", name: "form_value", widget: "string", hint: "Must match a Product Option value in Contact > Form (densified / undensified / both)" }
 
       - file: "src/_data/markets.yml"
         label: "Markets"
@@ -131,12 +148,11 @@ collections:
             name: "panels"
             widget: "list"
             fields:
-              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "number", widget: "string" }
               - { label: "Image URL", name: "image", widget: "string" }
               - { label: "Image Alt", name: "image_alt", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Apps", name: "apps", widget: "list" }
 
       - file: "src/_data/calculator.yml"
         label: "Calculator"
@@ -157,14 +173,15 @@ collections:
               - { label: "Total", name: "total", widget: "string" }
               - { label: "Sacks", name: "sacks", widget: "string" }
               - { label: "Tonnes", name: "tonnes", widget: "string" }
+          - { label: "Note Under Results", name: "note", widget: "string" }
 
       - file: "src/_data/stats.yml"
-        label: "Stats / By The Numbers"
+        label: "Coverage (stats, map, certifications)"
         name: "stats"
         fields:
           - { label: "Eyebrow", name: "eyebrow", widget: "string" }
-          - { label: "Heading", name: "heading", widget: "string" }
-          - label: "Years Card"
+          - { label: "Heading", name: "heading", widget: "text" }
+          - label: "Stats"
             name: "cards"
             widget: "object"
             fields:
@@ -189,13 +206,26 @@ collections:
                 fields:
                   - { label: "Number", name: "target", widget: "number" }
                   - { label: "Label", name: "label", widget: "string" }
-                  - { label: "Locations", name: "locations", widget: "list" }
+                  - label: "Where We Stock"
+                    name: "locations"
+                    widget: "list"
+                    fields:
+                      - { label: "Place", name: "place", widget: "string" }
+                      - { label: "Role", name: "role", widget: "string", hint: "e.g. Hub, Delivery, Distribution" }
               - label: "Certifications"
                 name: "certifications"
                 widget: "object"
                 fields:
-                  - { label: "Headline", name: "headline", widget: "text" }
+                  - { label: "Heading", name: "headline", widget: "string" }
                   - { label: "Items", name: "items", widget: "list" }
+
+          - label: "Map"
+            name: "map"
+            widget: "object"
+            fields:
+              - { label: "List Heading", name: "heading", widget: "string" }
+              - { label: "Caption", name: "caption", widget: "string" }
+              - { label: "Credit", name: "credit", widget: "string" }
 
       - file: "src/_data/contact.yml"
         label: "Contact"
